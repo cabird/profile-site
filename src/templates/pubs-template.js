@@ -6,6 +6,7 @@ import Sidebar from '../components/Sidebar';
 import Page from '../components/Page';
 import BibEntry from '../components/BibEntry';
 import { useSiteMetadata } from '../hooks';
+import _ from 'lodash';
 
 
 const PubsTemplate = ({ data }) => {
@@ -16,33 +17,35 @@ const PubsTemplate = ({ data }) => {
     files[foo.node.name] = foo.node;
   }
 
+  let pubs = data.allReference.edges.map(edge => edge.node);
+
+  let years = _.groupBy(pubs, pub => pub.year);
+  console.log(years);
+
+
   return (
     <Layout >
       <Sidebar />
       <Page title="Publications">
-        <ul>
-            {data.allReference.edges.map( ({ node, }) => 
-              (<li>
-                <BibEntry {...node} hasPdf={(node.key in files)} />
-              </li>)
-            )}
-        </ul>
+        { Object.keys(years).reverse().map( year =>
+          (<div><h2>{year}</h2>
+            <ul>
+              {years[year].map(node => 
+                (
+                  <li key={node.key}>
+                    <BibEntry {...node} hasPdf={(node.key in files)} />
+                  </li>
+                ))}
+            </ul>
+          </div>))
+        
+        }
       </Page>
     </Layout>
   );
 };
 
-/*
-{data.allReference.edges.map(( {node} ) => (
-              <li key={node.key}>
-                <span  >{node.authors.join(", ")}. </span>
-                <span style={{fontWeight: 'bold'}}> {node.title}. </span>                
-                In <span style={{fontStyle: 'italic'}} >{node.booktitle || node.journal || "UNKNOWN"},</span>
-                <span> {node.year}.</span> 
-                {(node.key in files ? <span> [<a href={'/pubs/' + node.key + '.pdf'}>pdf</a>] </span> : <span> no pdf </span>)} 
-              </li>
-            ))}
-*/
+
 
 export const query = graphql`
 query PubQuery {
