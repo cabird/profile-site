@@ -18,10 +18,7 @@ const PubsTemplate = ({ data }) => {
   }
 
   let pubs = data.allReference.edges.map(edge => edge.node);
-
   let years = _.groupBy(pubs, pub => pub.year);
-  console.log(years);
-
 
   return (
     <Layout >
@@ -38,7 +35,6 @@ const PubsTemplate = ({ data }) => {
                 ))}
             </ul>
           </div>))
-        
         }
       </Page>
     </Layout>

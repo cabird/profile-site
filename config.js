@@ -12,7 +12,7 @@ module.exports = {
   useKatex: false,
   menu: [
     {
-      label: 'Articles',
+      label: 'Main',
       path: '/'
     },
     {
@@ -20,12 +20,8 @@ module.exports = {
       path: '/publications'
     },
     {
-      label: 'About me',
+      label: 'About',
       path: '/pages/about'
-    },
-    {
-      label: 'Contact me',
-      path: '/pages/contacts'
     }
   ],
   author: {
@@ -33,14 +29,14 @@ module.exports = {
     photo: '/photo.jpg',
     bio: 'Stuff I do a work...',
     contacts: {
-      email: '#',
+      email: 'cbird@microsoft.com',
       facebook: '',
       telegram: '',
-      twitter: '#',
-      github: '#',
+      twitter: 'christianbird',
+      github: 'cabird',
       rss: '',
       vkontakte: '',
-      linkedin: '#',
+      linkedin: 'christian-bird-1896494',
       instagram: '',
       line: '',
       gitlab: '',
