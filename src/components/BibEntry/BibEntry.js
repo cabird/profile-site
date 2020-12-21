@@ -11,7 +11,7 @@ const BibEntry = (data) => {
     <span style={{fontWeight: 'bold'}}> {data.title}. </span>                
     In <span style={{fontStyle: 'italic'}} >{data.booktitle || data.journal || "UNKNOWN"},</span>
     <span> {data.year}. </span>
-    {(data.hasPdf ? <span> [<a href={'/pubs/' + data.key + '.pdf'}>pdf</a>] </span> : <span></span>)}
+    {(data.hasPdf ? <span> [<a href={data.pdf}>pdf</a>] </span> : <span></span>)}
     [<a onClick={onClick} style={{cursor: 'pointer'}}>BibTex</a>]
     {showBibtex ? <div> <pre>{data.raw}</pre> </div> : null}
 

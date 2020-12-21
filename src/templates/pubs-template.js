@@ -30,7 +30,7 @@ const PubsTemplate = ({ data }) => {
               {years[year].map(node => 
                 (
                   <li key={node.key}>
-                    <BibEntry {...node} hasPdf={(node.key in files)} />
+                    <BibEntry {...node} hasPdf={(node.key in files)} pdf={ (node.key in files) ? files[node.key].publicURL : "none"}  />
                   </li>
                 ))}
             </ul>

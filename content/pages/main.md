@@ -8,5 +8,5 @@ I am currently a principal researcher at Microsoft Research working on Empirical
 
 I currently work with Thomas Zimmermann, Denae Ford, and Nachi Nagappan in the Empirical Software Engineering (ESE) group at Microsoft Research.
 
-For a complete list of publications, positions held, etc., please see my CV.
+For a complete list of publications, positions held, etc., please see my [CV](/pubs/bird_cv.pdf).
 
